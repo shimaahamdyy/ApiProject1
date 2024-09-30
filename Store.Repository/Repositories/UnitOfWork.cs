@@ -28,12 +28,12 @@ namespace Store.Repository.Repositories
                 _repositories = new Hashtable();
 
             var entityKey = typeof(TEntity).Name;  //"Product"
-            
-            if (!_repositories.ContainsKey(entityKey) )
+
+            if (!_repositories.ContainsKey(entityKey))
             {
                 var repositoryType = typeof(GenericRepository<,>);
 
-                var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity) , typeof(Tkey)) , _context);
+                var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity), typeof(Tkey)), _context);
 
                 _repositories.Add(entityKey, repositoryInstance);
             }

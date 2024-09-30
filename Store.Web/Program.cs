@@ -9,10 +9,8 @@ using Store.Services.Services.ProductServices.Dto;
 using Store.Services.Services.ProductServices;
 namespace Store.Web
 {
-    public class program
-        
-        { 
-   
+    public class Program
+    {
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -30,7 +28,6 @@ namespace Store.Web
             builder.Services.AddScoped<IProductServices, ProductServices>();
             builder.Services.AddAutoMapper(typeof(ProductProfile));
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -38,7 +35,6 @@ namespace Store.Web
 
             await ApplySeeding.ApplySeedingAsync(app);
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

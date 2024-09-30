@@ -18,8 +18,6 @@ namespace Store.Web.Helper
                 {
                     var Context = Services.GetRequiredService<StoreDbContext>();
 
-                    //await Context.Database.MigrateAsync(); //To Create Database if it does not exist
-
                     await StoreContextSeed.SeedAsync(Context, loggerFactory);  
 
                 }
